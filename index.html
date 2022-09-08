@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Simple Weather App</title>
+</head>
+
+<body>
+    <header class="btn-sections">
+        <button type="button" onclick="morningMode()">Morning Mode</button>
+        <button onclick="eveningMode()">Evening Mode</button>
+    </header>
+    <section class="main-section">
+        <main class="main-container">
+            <h1>Simple Weather App</h1>
+            <form>
+                <input id="search" type="search" placeholder="search for a city" />
+                <!-- <input type="submit" /> -->
+            </form>
+        </main>
+    </section>
+
+    <div class="weather-loading">
+        <ul>
+            <li class="city">Weather in Denver</li>
+            <li class="temperature">51°C</li>
+            <li class="wind"></li>
+            <li class="description"></li>
+        </ul>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+
+</html>

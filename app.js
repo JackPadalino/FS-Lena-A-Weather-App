@@ -1,8 +1,9 @@
 // for changing the mode:
+const form = document.getElementById('form-id');
 const element = document.body;
 const city = document.querySelector('.city');
 const temperature = document.querySelector('.temperature');
-const description = document.querySelector('.description');
+const descriptionElement = document.querySelector('.description');
 const humidity = document.querySelector('.humidity');
 const wind = document.querySelector('.wind');
 const icon = document.querySelector('.icon');
@@ -32,6 +33,7 @@ let weather = {
   },
 
   displayWeather: function (data) {
+    console.log(data);
     const { name } = data;
     const { icon, description } = data.weather[0];
     const { temp, humidity } = data.main;
@@ -39,15 +41,21 @@ let weather = {
     city.innerText = `Weather in ${name}`;
     // icon.src = 'https://openweathermap.org/img/wn/' + icon + '.png';
     temperature.innerText = `${temp} °C`;
-    description.innerText = description;
-    // humidity.innerText = `humidity: ${humidity}`;
+    descriptionElement.innerText = description;
+    console.log(description)
+    humidity.innerText = `humidity: ${humidity}`;
     wind.innerText = `Wind speed: ${speed}`;
   },
 };
 
-search.addEventListener('click', (event) => {
-  console.log(event.target.value);
-  weather.fetchWeather(event.target.value);
-});
+// let searchCity;
+// search.addEventListener('click', (event) => {
+//   searchCity = event.target.value;
+// });
 
-weather.fetchWeather("Denver");
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log(event.target);
+  weather.fetchWeather(search.value);
+});
+weather.fetchWeather('Denver');
